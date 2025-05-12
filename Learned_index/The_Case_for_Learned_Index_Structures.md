@@ -19,7 +19,7 @@ Kraska, Tim, Alex Beutel, Ed H. Chi, Jeffrey Dean, and Neoklis Polyzotis. “The
 
   Based on that observation and inspired by the mixture of experts work [62], we propose the recursive regression model (see Figure 3)
 
-  <img src="file:./image/typora-img-1746689809943.png" alt="image-20250508153649911" style="zoom:50%;" />
+  <img src="image/typora-img-1746689809943.png" alt="image-20250508153649911" style="zoom:50%;" />
 
   * **RMI description:** We assume at stage $\ell$, there are $M_{\ell}$ models （For example, there 4 models in stage3 above）.We train the model at stage 0. (There is a problem with the stage identification above, It should be fixed as : stage 0, stage 1, stage 2)
 

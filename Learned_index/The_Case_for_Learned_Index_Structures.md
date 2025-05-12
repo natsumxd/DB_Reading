@@ -28,12 +28,11 @@ Kraska, Tim, Alex Beutel, Ed H. Chi, Jeffrey Dean, and Neoklis Polyzotis. “The
   * **Model identification  description**: The model $k$ in stage $\ell$ is denoted as $\mathrm{Model}\; \ell.k$ above Figure 3 and the model is also denoted by $f_{\ell}^{(k)}(x)$, At stage 0, the model of $\mathrm{Model\; 0.0}$ is $f_0(x)$
 
   * **Model loss function**:
-    $$
-    L_{\ell} = \sum_{(x,y)}(f_{\ell}^{\lfloor M_{\ell}f_{\ell -1}(x)/N \rfloor} (x) - y)^2 
+    $$L_{\ell} = \sum_{(x,y)}(f_{\ell}^{\lfloor M_{\ell}f_{\ell -1}(x)/N \rfloor} (x) - y)^2 
     \qquad
-    L_{0} = \sum_{(x,y)}(f_{0}(x) - y)^2
-    $$
-    Note here the notation of $f_{\ell - 1}(x)$  in $L_{\ell}$recursively execution $f_{\ell - 1}^{\lfloor M_{\ell - 1}f_{\ell -2}(x)/N \rfloor} (x)$. In train process, we need make a prediction with a certain error about the prsition for the $key$.
+    L_{0} = \sum_{(x,y)}(f_{0}(x) - y)^2$$
+
+    Note here the notation of $f_{\ell - 1}(x)$  in $L_{\ell}$ recursively execution $f_{\ell - 1}^{\lfloor M_{\ell - 1}f_{\ell -2}(x)/N \rfloor} (x)$. In train process, we need make a prediction with a certain error about the prsition for the $key$.
 
   * Differencent between B+ tree and RMI:
 
@@ -59,8 +58,8 @@ Kraska, Tim, Alex Beutel, Ed H. Chi, Jeffrey Dean, and Neoklis Polyzotis. “The
     * Explain the Code:
 
       * 1~3: M is the layers number
-      * 4~10: Use two fully-connected hidden layers to train $\mathrm{Model}\; \ell.k$, here $\ell < M, k >= 1 \and k <= stages[\ell]$ ;
-      * 11~14: Use linear regression to train $\mathrm{Model}\; M.k$, here $k >= 1 \and k <= stages[M]$, if abs error greater than threshold, we use B Tree page to replace it.
+      * 4~10: Use two fully-connected hidden layers to train $\mathrm{Model} \; \ell.k$, here $\ell < M, k >= 1 \land k <= stages[\ell]$ ;
+      * 11~14: Use linear regression to train $\mathrm{Model}\; M.k$, here $k >= 1 \land k <= stages[M]$, if abs error greater than threshold, we use B Tree page to replace it.
 
       In addition, store the min-/max- error into $\mathrm{Model}\; M.k$ can help to search the key.
 
@@ -88,14 +87,14 @@ Kraska, Tim, Alex Beutel, Ed H. Chi, Jeffrey Dean, and Neoklis Polyzotis. “The
 
   Explain how to search the key what we want to search in sorted array ?  Firstly define the $f(x)$ is the predict key position. Secondly the two search strategy:
 
-  * **Model Biased Search:** default search strategy , the search interval is $[f(x) - max\_error, f(x) - min\_error]$ or $[f(x) + min\_error, f(x) + max\_error]$, its are divided by $f(x) + min\_error$;
-  * **Biased Quaternary Search:**  If the cpu cache can load the $[f(x) - max\_error, f(x) + max\_error]$, so we can directly scan the cache to find the target key; otherwise, we can build Quaternary search point $f(x) - \sigma ,f(x), f(x) + \sigma $, Here $\sigma = \frac{max\_error + min\_error}{2}$;
+  * **Model Biased Search:** default search strategy , the search interval is $[f(x) - max\\_error, f(x) - min\\_error]$ or $[f(x) + min\\_error, f(x) + max\\_error]$, its are divided by $f(x) + min\_error$;
+  * **Biased Quaternary Search:**  If the cpu cache can load the $[f(x) - max\\_error, f(x) + max\\_error]$, so we can directly scan the cache to find the target key; otherwise, we can build Quaternary search point $f(x) - \sigma ,f(x), f(x) + \sigma $, Here $\sigma = \frac{max\\_error + min\\_error}{2}$;
 
 * 3.5 Indexing Strings
 
   Explain How to index string type in RMI index?
 
-  Assume all input string vector is $I = \{X_1,X_2, ..., X_S \} $ , Here each $X_j$  is the input string. we need to normal it:
+  Assume all input string vector is $I = \{X_1,X_2, ..., X_S \}$ , Here each $X_j$  is the input string. we need to normal it:
 
   * First, consider the $X_j$ is $n$-length string,  we can tokenization $X_j$ into feature vector $(x_1, x_2, ..., x_n)$ , Here , the $x_i$ is ASCII decimal value or Unicode decimal value of each character;
   * Second, set a maximum input length $N$,  for each $X_j$ , if its length $n_j > N$, truncate the $X_j$ into $(x_1, x_2, ..., x_N)$ . else if $n_j < N$ , padding zero into trail to transform it into $(x_1, x_2, ..., x_{n_j}, 0, ...,0)$.

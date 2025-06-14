@@ -2,7 +2,7 @@
 
 ## 4.2 TIMESTAMP ORDERING (TO)
 
-the TM assigns a unique timestamp, $ts(T_i)$, to each transaction, $T_i$. 
+the TM assigns a unique timestamp, $ts(T_i)$, to each transaction, $T_i$.  
 
 **TO Rule:**  If  $p_i[x]$ and $q_j[x]$ are conflicting operations, then the DM processes $p_i[x]$ before $q_j[x]$ iff $\mathrm{ts}(T_i) < \mathrm{ts}(T_j)$.
 

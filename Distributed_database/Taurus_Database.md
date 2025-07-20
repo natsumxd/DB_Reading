@@ -7,7 +7,7 @@ To prevent the storage layer from becoming a bottleneck, Taurus enhances its per
 
 # 1 Architecture
 
-<img src="file:./image/typora-img-1752400859800.png" alt="image-20250713180059724" style="zoom:50%;" />
+<img src="./image/typora-img-1752400859800.png" alt="image-20250713180059724" style="zoom:50%;" />
 
 In Taurus:
 
@@ -124,7 +124,7 @@ The compute tier (MySQL frontend + SAL) recovers as follows:
 
 * Taurus demonstrates good workload scalability even when the master executes heavy workloads up to 200,000 writes per second. At this utilization level, the replica lag is below 11ms, which is small enough for many applications. The Aurora authors do not provide data above 10,000 writes per second.
 
-  <img src="file:./image/typora-img-1752585643048.png" alt="image-20250715212042993" style="zoom:50%;" />
+  <img src="./image/typora-img-1752585643048.png" alt="image-20250715212042993" style="zoom:50%;" />
 
 
 

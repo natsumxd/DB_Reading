@@ -19,7 +19,7 @@ Kraska, Tim, Alex Beutel, Ed H. Chi, Jeffrey Dean, and Neoklis Polyzotis. “The
 
   Based on that observation and inspired by the mixture of experts work [62], we propose the recursive regression model (see Figure 3)
 
-  <img src="file:./image/typora-img-1746689809943.png" alt="image-20250508153649911" style="zoom:50%;" />
+  <img src="./image/typora-img-1746689809943.png" alt="image-20250508153649911" style="zoom:50%;" />
 
   * **RMI description:** We assume at stage $\ell$, there are $M_{\ell}$ models （For example, there 4 models in stage3 above）.We train the model at stage 0. (There is a problem with the stage identification above, It should be fixed as : stage 0, stage 1, stage 2)
 
@@ -54,7 +54,7 @@ Kraska, Tim, Alex Beutel, Ed H. Chi, Jeffrey Dean, and Neoklis Polyzotis. “The
     *  Simple neural nets with zero to two fully-connected hidden layers and ReLU activation functions and a layer width of up to 32 neurons; 
     * B-Trees (a.k.a. decision trees)
 
-    <img src="file:./image/typora-img-1746715823542.png" alt="image-20250508225023494" style="zoom:50%;" />
+    <img src="./image/typora-img-1746715823542.png" alt="image-20250508225023494" style="zoom:50%;" />
 
     * Explain the Code:
 
@@ -108,7 +108,7 @@ Kraska, Tim, Alex Beutel, Ed H. Chi, Jeffrey Dean, and Neoklis Polyzotis. “The
 
   * 3.7.1 Integer Datasets.
 
-    ![image-20250511111028484](file:./image/typora-img-1746933028512.png)
+    ![image-20250511111028484](./image/typora-img-1746933028512.png)
 
     Configuation:
 
@@ -129,7 +129,7 @@ Kraska, Tim, Alex Beutel, Ed H. Chi, Jeffrey Dean, and Neoklis Polyzotis. “The
 
     * Learned Index vs Alternative Baselines:
 
-      <img src="file:./image/typora-img-1747013646454.png" alt="image-20250512093406406" style="zoom: 50%;" />
+      <img src="./image/typora-img-1747013646454.png" alt="image-20250512093406406" style="zoom: 50%;" />
 
       * **Configuration:** we used the Lognormal data with a payload of an eight-byte pointer.
 
@@ -152,7 +152,7 @@ Kraska, Tim, Alex Beutel, Ed H. Chi, Jeffrey Dean, and Neoklis Polyzotis. “The
 
     * String Datasets.
 
-      <img src="file:./image/typora-img-1747014472283.png" alt="image-20250512094752253" style="zoom:50%;" />
+      <img src="./image/typora-img-1747014472283.png" alt="image-20250512094752253" style="zoom:50%;" />
 
       Learned index slower than Btree:
 

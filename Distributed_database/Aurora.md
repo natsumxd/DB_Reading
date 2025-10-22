@@ -117,7 +117,11 @@ Since our system has a high tolerance to failures, we can leverage this for main
 
 #### Compute tier
 
-**Firstly, the log structure changes**: Each log record stores the LSN of the preceding log record in the volume, the previous LSN for the segment, and the previous LSN for the block being modified. The block chain is used by the storage node to materialize individual blocks on demand. The segment chain is used by each storage node to identify records that it has not received and fill in these holes by gossiping with other storage nodes. The full log chain is not needed by an individual storage node but provides a fallback path to regenerate storage volume metadata in case of a disastrous loss of metadata state.
+**Firstly, the log structure changes**: Each log record stores the LSN of the preceding log record in the volume, the previous LSN for the segment, and the previous LSN for the block being modified. 
+
+* The block chain is used by the storage node to materialize individual blocks on demand. 
+* The segment chain is used by each storage node to identify records that it has not received and fill in these holes by gossiping with other storage nodes. 
+* The full log chain is not needed by an individual storage node but provides a fallback path to regenerate storage volume metadata in case of a disastrous loss of metadata state.
 
 **Secondly, Asynchronously write:**  Asynchronously  send redo log, receives acknowledgments, and establishes consistency points.
 
